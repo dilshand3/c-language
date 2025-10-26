@@ -6,16 +6,24 @@ int main()
 {
     vector<int> vec = {1, 2, 3, 4, 5, 6};
     int target = 11;
-    for (int i = 0; i < vec.size(); i++)
+    int i = 0, j = vec.size() - 1;
+    while (i <= j)
     {
-        for (int j = i + 1; j < vec.size(); j++)
+        int currentSum = vec[i] + vec[j];
+        if (currentSum == target)
         {
-            if (vec[i] + vec[j] == target)
-            {
-                cout << i << " " << j << " " << "sum is equal to target";
-                break;
-            }
+            cout << i << " " << j << " " << endl;
+            return 0;
+        }
+        else if (currentSum > target)
+        {
+            j--;
+        }
+        else
+        {
+            i++;
         }
     }
+
     return 0;
 }
